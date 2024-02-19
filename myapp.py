@@ -1,4 +1,4 @@
-!pip install pymysql
+pip install pymysql
 import streamlit as st
 import pandas as pd
 import pymysql
