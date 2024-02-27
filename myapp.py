@@ -1,25 +1,16 @@
 import streamlit as st
+import pandas as pd
+import pymysql
 import speech_recognition as sr
-
-
 import pandas as pd
 import re
 from IPython.display import Markdown
 import pathlib
 import textwrap
-
-
-
-
 import google.generativeai as genai
-
-
-
-
 from IPython.display import display
 from IPython.display import Markdown
 import streamlit as st
-
 
 def to_markdown(text):
   text = text.replace('•', '  *')
@@ -31,53 +22,33 @@ genai.configure(api_key="AIzaSyDyjbk9QFtz-h8p-NMY1Zk0aD7dPYxVA_0")
 model = genai.GenerativeModel('gemini-pro')
 
 
-
-
 def generate_responses1(a):
     model = genai.GenerativeModel('gemini-pro')
-    answer = model.generate_content(f"give feedback for the question difference between group by and having and give marks out of 10 for the answer{a}")
+    answer = model.generate_content(f"give sql query for the question {a} usig the tables inside the {result}")
     return Markdown(answer.text).data
 
+conn=pymysql.connect(host = '127.0.0.1',user='root',passwd='admin@123',database = "youtube")
+        # Use Pandas to execute SQL queries
+result = pd.read_sql_query("select * from car_prices", conn)
 
-def generate_responses2(a):
-    model = genai.GenerativeModel('gemini-pro')
-    answer = model.generate_content(f"give feedback for the question different types of joins and give marks out of 10 for the answer{a}")
-    return Markdown(answer.text).data
+# Streamlit App
+def main():
+    st.title("SQL Query Runner")
 
-# Function to recognize speech from audio input
-def recognize_speech():
-    recognizer = sr.Recognizer()
-    with sr.Microphone() as source: 
-        st.write("Please speak, then click 'Stop' when finished recording:")
-        audio = recognizer.listen(source)
-        #st.write("Recording stopped. Transcribing...")
+    # Text area for user input
+    query = st.text_area("Enter your Question here:", "Iam ready to help you")
 
-    try:
-        user_input = recognizer.recognize_google(audio)
-        return user_input
-    except sr.UnknownValueError:
-        st.error("Sorry, I couldn't understand what you said.")
-    except sr.RequestError as e:
-        st.error(f"Could not request results; {e}")
+    # Run Query button
+    if st.button("get answer"):
+        if query.strip() != "":
+            result = generate_responses1(query)
+            if isinstance(result, pd.DataFrame):
+                st.success("Query executed successfully!")
+                st.dataframe(result)
+            else:
+                st.error(result)
+        else:
+            st.warning("Please enter a valid SQL query.")
 
-
-
-# Streamlit app layout
-st.title("Speech-based Chatbot")
-
-st.subheader("Tell me the difference between group by and having")
-
-# Button to start recording
-if st.button("Start Recording - Q1"):
-    user_input1 = recognize_speech()
-    if user_input1:
-        st.write("You said:", user_input1)
-        st.write("You answer:", generate_responses1(user_input1))
-
-
-st.subheader("Tell me the different types of Joins")
-if st.button("Start Recording - Q2"):
-    user_input2 = recognize_speech()
-    if user_input2:
-        st.write("You said:", user_input2)
-        st.write("You answer:", generate_responses2(user_input2))
+if __name__ == "__main__":
+    main()
