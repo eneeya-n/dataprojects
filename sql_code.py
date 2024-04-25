@@ -1,7 +1,7 @@
 import streamlit as st
 import sqlite3
 import pandas as pd
-import data as d
+import sql_code_data as d
 
 # Streamlit UI
 st.title("SQL Query Checker")
