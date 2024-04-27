@@ -229,5 +229,4 @@ def exc():
 
     schema_title = [["Table : ICC_World_Cup"],["Table : Customer_orders"],["Table : Entries"],["Table : Person","Table : Friend"],["Table: Trips", "Table: Users_Details"]]
     expected_out_col = [["Team","Total_Matches_Played","Victories_Secured","Defeats_Encountered"],["order_date","new_customer_count","repeat_customer_count"],['name', 'total_visits', 'most_visited_floor', 'resources_used'], ['personid','total_friend_score','no_of_friends','person_name'],['request_at', 'cancelled_trip_count', 'total_trips', 'cancelled_percent']]
-    print("Hello")
     return conn, c, questions, schema_set, schema_title, expected_out_col
