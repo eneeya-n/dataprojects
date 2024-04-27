@@ -3,8 +3,44 @@ import sqlite3
 import pandas as pd
 import sql_code_data as d
 
+page_bg_img = """
+<style>
+[data-testid="stAppViewContainer"]{
+background: #d954fa;
+background: -webkit-linear-gradient(146deg, #d954fa 0%, #e591dd 50%, #ddb9dd 100%);
+background: linear-gradient(146deg, #d954fa 0%, #e591dd 50%, #ddb9dd 100%);
+}
+
+[data-testid="stHeader"]{
+background-color: rgba(0,0,0,0);
+opacity: 1;
+}
+
+[data-testid="stToolbar"]{
+right: 4rem;
+}
+
+[data-testid="stSidebar"]{
+background: linear-gradient(to right, #e66465, #9198e5);
+opacity: 1;
+}
+
+[data-testid="baseButton-secondary"]{
+background: #efb1ff;
+background: -webkit-linear-gradient(146deg, #efb1ff 0%, #ffe2ff 100%);
+background: linear-gradient(146deg, #efb1ff 0%, #ffe2ff 100%);
+}
+
+</style>
+"""
+st.markdown(page_bg_img, unsafe_allow_html=True)
+
+# Sidebar
+st.sidebar.title("SQL Codebreaker Challenge!")
+st.sidebar.write('''This challenge is designed to test your SQL skills and problem-solving abilities. As a codebreaker, your mission is to unravel complex SQL queries and solve challenging database problems. Put your SQL knowledge to the test as you tackle a series of mind-bending queries and data manipulation tasks. Are you ready to crack the code and emerge as a SQL codebreaking champion?''')
+
 # Streamlit UI
-st.title("SQL Query Checker")
+st.title("SQL Codebreaker Challenge")
 
 conn, c, questions, schema_set, schema_title, expected_out_col = d.exc()
 
@@ -30,7 +66,8 @@ def main():
 
     # Display selected question
     question, expected_output = questions[st.session_state.current_question_index]
-    st.write("Question " + str(st.session_state.current_question_index+1) + ":", question)
+    st.write("Question " + str(st.session_state.current_question_index+1) + ":")
+    st.write(question)
 
     # Display schema for the first question
     for j in range(len(schema_title[st.session_state.current_question_index])):
