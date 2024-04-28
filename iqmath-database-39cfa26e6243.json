@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "iqmath-database",
+  "private_key_id": "39cfa26e6243b3d4a442db2eb8361cac9934d564",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDHhC8eEyTtA+r8\ngHFcXkX1NwDbfsL1XtfX6n25Cj3sZHTQ+Z5XI21T3X0cdglQ5NlL4MYykNZeISCY\n0ZVR8pqjGMjRG+eR9T/kBtt6doTJhOkuOb9ZoaEZDODswsiJ9CdR55dWFvUsgAYs\naGqPnOigh/4n3NfwmzgR1WUry4mmUGIaE12XCdGqYvL1PIynheCjuGsge4CxxvDg\nTWwO8oWsBt04gvPY22FKEhYfDmGM+p+2Bd5A7VqVQinmOEJ5M/VMjVh9/UeaNQSm\nhiP7evL+KQfI9EBZ4m3m5o742WgEwao7JqbrZnRdDbhHAXcfw726K+omRB2P2QFc\niG1pbPDJAgMBAAECggEADbBXjUAyAeMJbd6gKH69XQgzklu9o5koxQMtMhNuUThJ\nPYdK4l6nYyAos9mzZO32rLqUzqZaVuX99w42KQO0sWkDajl4Z27Eve/sghf8n1jz\nqLzEkLFCvNXB3uy0Vqa+RePWYc08cBuukMBvQ0A4Q79g5DpGRJdZvvt9sAYMgTEW\nkCdRYWTQjpiYebLgBl/oOnRI2uu7lJWFsa2avx9gtR2qApLYkBFx+oA1KKi4bQbe\nd01/MNcDr20KJnwBXrHfOfOER7tXdLGGC90kBRVOTjIPDA0EtHRMFZtXGBwY0xF8\nhfrSOwaNnGMzIba1XQUJpwdNm7Sh0kU+Yup6UcspiwKBgQD2xj34Dta3rbpMzV28\n3SfhzpnYssanEixNLN13AvArrmpXEd6uJciY7IwQeCEz8mvFoureVncv5hwocaMy\nbidIjro6OtzxbYx+cET7ClJFFLNbZgYXWdq/JLfdsNglF3cSo7cwqrZ7WC214uNI\nCEnN66BWhGv00LUrwcHoiUcS3wKBgQDO+aiAu+mL8ZrlRyKbOho17FjweG7vo3g8\naanVhX9bpGBAyvWCFP96zAUsWIIGa23UvdmkCPdRdYTv+b13DWYB5SbTRF81aEwF\nzjobWciVHhLaIEICFn1yW58fw0+wzGxZKo8/Q5MoInZs+ZOarrJKcM6qJhYhH4Yt\ncYGzsApZVwKBgBYhHuuAwSaFkMBUZkSKfIoWUduJ5KCU0540GMQUYl84a9bVBmgN\ngVidVc4gR7H12k5F1tQLYvLLqtjBoAXktOcfzXltT+Tikwe/n5/3g/sn6RGYK5Gq\ngCBF9asOscNZwFbOkZ3uoSCcfrTh3MnX3G5348/+XgP9N1HuNSpaLSJ3AoGAT1xp\nINtspI1CcFGDUnPH4w851xLGrrpGexuk1Et41wHDKnToCDXW9BXQkf1p9d4xYdZd\n4kjR0/k0vPNMk56ek3FzHqTjwM26AKvfmecmQw8h+WNPDA/lj/jTndE8+DSaAuKP\nxJk7jrMQJ57W2wPLN0Hj7FfoOlElGL2iFu0UOscCgYEAlyYkZh8Izg0WbwefBV/q\nrWoDSTv/Lykk9HW99WL3I52mW/2cd2KdTsqrhDMiwe6Q4fcxVhjVkKHSIT9GFIfJ\nRcU8LRuwyGUKd/1NAwdUHw7ggroft85UFc529NiO9rbvy8tsqnVMXTCq16H1NwrG\nMNuvYipLd6mavTPvmupxGFM=\n-----END PRIVATE KEY-----\n",
+  "client_email": "stream-project@iqmath-database.iam.gserviceaccount.com",
+  "client_id": "103456999471361802387",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/stream-project%40iqmath-database.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
