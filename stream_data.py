@@ -131,8 +131,6 @@ def get_remote_ip() -> str:
 ip_add = get_remote_ip()
 
 def val_ip(user_ip_add):
-    st.write(ip_add)
-    st.write(user_ip_add)
     if ip_add == user_ip_add:
         return True
     else:
