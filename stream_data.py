@@ -189,7 +189,7 @@ def main():
                     st.success(f"Welcome to IQMath Analytics, {username}!")
                     # Redirect to the dashboard app with username as query parameter
                     dashboard_url = "https://dataprojects-nkmeng7q9oqyrvce3abdxp.streamlit.app/?username=" + username
-                    st.markdown(f"[Click Here] to redirect to the Coding Application({dashboard_url})")
+                    st.markdown(f"[Click Here]({dashboard_url}) to redirect to the Coding Application")
                 else:
                     st.error("The username or password is incorrect")
 
