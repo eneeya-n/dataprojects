@@ -84,7 +84,7 @@ def run():
     
     except:
         st.error("You need to login first...!")
-        login_url = "http://192.168.201.213:8501"
+        login_url = "https://dataprojects-s7k5ey6hksc9rvyrpevcwt.streamlit.app/"
         st.markdown(f"Here is the Login Link : [Login]({login_url})")
         open = False
         
