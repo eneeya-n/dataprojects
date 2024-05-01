@@ -3,6 +3,7 @@ from google.oauth2.service_account import Credentials
 import gspread
 import json
 import webbrowser
+import gmail as t
 
 from streamlit import runtime
 from streamlit.runtime.scriptrunner import get_script_run_ctx
@@ -154,10 +155,21 @@ def authenticate(username, password):
 
 # Streamlit app
 def main():
+    session_state = st.session_state
+
+    if "mac_otp" not in session_state:
+        session_state.mac_otp = None
+        session_state.new_username = None
+        session_state.new_password = None
+        session_state.new_phone = None
+        session_state.new_email = None
+        session_state.new_college = None
+        session_state.new_year = None
+
     st.title("IQMath User Authentication Portal")
 
     # Tabs for Signup and Login
-    tab1, tab2 = st.tabs(["Sign Up", "Login"])
+    tab1, tab2, tab3 = st.tabs(["Sign Up", "Verify your account", "Login"])
 
     with tab1:
         with st.form("Sign Up Form"):
@@ -175,10 +187,44 @@ def main():
                 elif check_user(new_username):
                     st.error("Username already exists. Try a different username.")
                 else:
-                    sheet.append_row([new_username, new_password, new_phone, new_email, new_college, new_year])
-                    st.success("You have successfully signed up!")
+                    mac_otp = t.send_otp(new_email)
+                    st.success("OTP has sent to your mail successfully, Verify your account to attend the coding test!")
+                    session_state.mac_otp = int(mac_otp)
+                    session_state.new_username = new_username
+                    session_state.new_password = new_password
+                    session_state.new_phone = new_phone
+                    session_state.new_email = new_email
+                    session_state.new_college = new_college
+                    session_state.new_year = new_year
+        if session_state.mac_otp:
+            with st.form(key="resend_otp_form"):
+                st.write("Didn't receive OTP?")
+                resend_button = st.form_submit_button("Resend OTP")
+                if resend_button:
+                    session_state.mac_otp = int(t.send_otp(new_email))
+                    st.success("OTP has sent to your mail successfully...!")
 
     with tab2:
+        with st.form("Verify OTP Form"):
+            user_name_new = st.text_input("Username", "")
+            user_mail_new = st.text_input("Email", "")
+            user_otp = st.text_input("Enter OTP", "")
+            check = session_state.mac_otp
+            verify_button = st.form_submit_button("Verify OTP")
+            if verify_button:
+                if not check_user(user_name_new):
+                    if user_mail_new == session_state.new_email and user_name_new == session_state.new_username:
+                        if user_otp and int(user_otp) == session_state.mac_otp:
+                            sheet.append_row([session_state.new_username, session_state.new_password, session_state.new_phone, session_state.new_email, session_state.new_college, session_state.new_year])
+                            st.success("You have successfully verified your account, Login to attend the SQL coding test!")
+                        elif user_otp:
+                            st.error("Incorrect OTP. Please try again.")
+                    else:
+                        st.error("Incorrect Username or Password...!")
+                else:
+                    st.error("Username already exists.")
+
+    with tab3:
         with st.form("Login Form"):
             username = st.text_input("Username", "")
             password = st.text_input("Password", type="password")
@@ -189,9 +235,11 @@ def main():
                     st.success(f"Welcome to IQMath Analytics, {username}!")
                     # Redirect to the dashboard app with username as query parameter
                     dashboard_url = "https://dataprojects-nkmeng7q9oqyrvce3abdxp.streamlit.app/?username=" + username
-                    st.markdown(f"[Click Here]({dashboard_url}) to redirect to the Coding Application")
+                    st.markdown(f"Redirecting to the Coding Application...")
+                    webbrowser.open_new_tab(dashboard_url)
                 else:
                     st.error("The username or password is incorrect")
+    
 
 if __name__ == "__main__":
     main()
