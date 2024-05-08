@@ -47,7 +47,6 @@ def get_remote_ip() -> str:
         ctx = get_script_run_ctx()
         if ctx is None:
             return None
-
         session_info = runtime.get_instance().get_client(ctx.session_id)
         if session_info is None:
             return None
@@ -84,7 +83,7 @@ def run():
     
     except:
         st.error("You need to login first...!")
-        login_url = "https://dataprojects-s7k5ey6hksc9rvyrpevcwt.streamlit.app/"
+        login_url = "http://192.168.201.213:8501"
         st.markdown(f"Here is the Login Link : [Login]({login_url})")
         open = False
         
@@ -96,7 +95,7 @@ def run():
             st.sidebar.title("SQL Codebreaker Challenge!")
             st.sidebar.write('''This challenge is designed to test your SQL skills and problem-solving abilities. As a codebreaker, your mission is to unravel complex SQL queries and solve challenging database problems. Put your SQL knowledge to the test as you tackle a series of mind-bending queries and data manipulation tasks. Are you ready to crack the code and emerge as a SQL codebreaking champion?''')
 
-            st.write(f"Welcome back, {username}!")
+            st.write(f"**Welcome back, {username}!**")
 
             # Track current question index
             if "current_question_index" not in st.session_state:
@@ -104,7 +103,7 @@ def run():
 
             # Display selected question
             question, expected_output = questions[st.session_state.current_question_index]
-            st.write("Question " + str(st.session_state.current_question_index+1) + ":")
+            st.write("**Question " + str(st.session_state.current_question_index+1) + ":**")
             st.write(question)
 
             # Display schema for the first question
@@ -132,7 +131,7 @@ def run():
                 st.markdown(expected_output_df.style.hide(axis="index").to_html(), unsafe_allow_html=True)
 
             # Get user's SQL query answer
-            user_query = st.text_area("Enter your SQL query answer:", height=200)  # Bigger input box
+            user_query = st.text_area("**Enter your SQL query answer:**", height=200)  # Bigger input box
 
             col1, col2, col3 = st.columns([9, 4, 3])
             # Button to execute the query and show the output
@@ -194,8 +193,6 @@ def run():
         
         else:
             st.error("You are not authorized to enter this site...!")
-
-
 
 # Run the main function
 if __name__ == "__main__":
