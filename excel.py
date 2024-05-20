@@ -3,157 +3,57 @@ import streamlit as st
 
 # Define all the questions, options, and answers
 quiz_questions = [
-        {
-            'question': 'Which key combination moves the cursor to the beginning of a worksheet in Excel?',
-            'options': ['Ctrl + End', 'Home', 'Ctrl + Home', 'Alt + Home'],
-            'answer': 'Ctrl + Home',
-            'explanation': 'Ctrl + Home moves the cursor to the beginning of the worksheet.'
-        },
-        {
-            'question': 'How do you extend the cell selection with the keyboard?',
-            'options': ['Shift + Click', 'Ctrl + Shift + Arrow Key', 'Alt + Shift + Arrow Key', 'Shift + Arrow Key'],
-            'answer': 'Shift + Arrow Key',
-            'explanation': 'Shift + Arrow Key extends the cell selection with the keyboard.'
-        },
-        {
-            'question': "What does pressing 'Ctrl + Space' in Excel do?",
-            'options': ['Opens the space menu', 'Selects the entire row', 'Selects the entire column', 'Selects the entire worksheet'],
-            'answer': 'Selects the entire column',
-            'explanation': 'Ctrl + Space selects the entire column in Excel.'
-        },
-        {
-            'question': 'Which shortcut inserts a new worksheet in Excel?',
-            'options': ['Ctrl + T', 'Ctrl + N', 'Ctrl + K', 'Shift + F11'],
-            'answer': 'Shift + F11',
-            'explanation': 'Shift + F11 inserts a new worksheet in Excel.'
-        },
-        {
-            'question': 'How can you save a workbook using keyboard shortcuts?',
-            'options': ['Shift + S', 'Ctrl + Save', 'Ctrl + B', 'Ctrl + S'],
-            'answer': 'Ctrl + S',
-            'explanation': 'Ctrl + S saves a workbook using keyboard shortcuts.'
-        },
-        {
-            'question': "What function does 'Ctrl + A' perform when the active cell is not in a table?",
-            'options': ['Selects the entire worksheet', 'Selects the entire column', 'Selects the entire row', 'Selects the active table'],
-            'answer': 'Selects the entire worksheet',
-            'explanation': 'Ctrl + A selects the entire worksheet when the active cell is not in a table.'
-        },
-        {
-            'question': 'Which of the following is used to open the Print dialog in Excel?',
-            'options': ['Alt + P', 'Ctrl + P', 'Shift + P', 'Ctrl + Print'],
-            'answer': 'Ctrl + P',
-            'explanation': 'Ctrl + P is used to open the Print dialog in Excel.'
-        },
-        {
-            'question': 'To apply bold formatting to selected cells, which shortcut should be used?',
-            'options': ['Ctrl + B', 'Ctrl + U', 'Ctrl + I', 'Alt + B'],
-            'answer': 'Ctrl + B',
-            'explanation': 'Ctrl + B is used to apply bold formatting to selected cells.'
-        },
-        {
-            'question': 'Which of these shortcuts will copy the selected cells?',
-            'options': ['Ctrl + X', 'Ctrl + C', 'Ctrl + V', 'Ctrl + Z'],
-            'answer': 'Ctrl + C',
-            'explanation': 'Ctrl + C copies the selected cells.'
-        },
-        {
-            'question': 'If you need to undo the last action, which shortcut would you use?',
-            'options': ['Ctrl + Y', 'Ctrl + W', 'Ctrl + Z', 'Ctrl + U'],
-            'answer': 'Ctrl + Z',
-            'explanation': 'Ctrl + Z is used to undo the last action.'
-        },
-        {
-            'question': "What does 'Ctrl + End' do in Excel?",
-            'options': ['Ends the current function', 'Ends the Excel program', 'Clears the selected cells', 'Moves to the last cell with content'],
-            'answer': 'Moves to the last cell with content',
-            'explanation': 'Ctrl + End moves to the last cell with content in Excel.'
-        },
-        {
-            'question': 'Which key combination is used to extend the selection to the last non-empty cell in Excel?',
-            'options': ['Shift + Arrow Key', 'Ctrl + Shift + Arrow Key', 'Ctrl + Arrow Key', 'Alt + Shift + Arrow Key'],
-            'answer': 'Ctrl + Shift + Arrow Key',
-            'explanation': 'Ctrl + Shift + Arrow Key extends the selection to the last non-empty cell in Excel.'
-        },
-        {
-            'question': 'To insert a hyperlink in a cell, you would use:',
-            'options': ['Ctrl + K', 'Ctrl + L', 'Ctrl + J', 'Ctrl + H'],
-            'answer': 'Ctrl + K',
-            'explanation': 'Ctrl + K is used to insert a hyperlink in a cell.'
-        },
-        {
-            'question': "What does pressing 'Alt + Page Down' do in Excel?",
-            'options': ['Moves one screen to the left', 'Prints the current page', 'Moves to the bottom of the current page', 'Moves one screen to the right'],
-            'answer': 'Moves one screen to the right',
-            'explanation': 'Alt + Page Down moves one screen to the right in Excel.'
-        },
-        {
-            'question': "How would you open the 'Find and Replace' dialog using keyboard shortcuts?",
-            'options': ['Ctrl + R', 'Ctrl + S', 'Ctrl + F', 'Ctrl + H'],
-            'answer': 'Ctrl + H',
-            'explanation': "Ctrl + H is used to open the 'Find and Replace' dialog using keyboard shortcuts."
-        },
-        {
-            'question': 'Which function is NOT associated with copying, cutting, and pasting in Excel?',
-            'options': ['Ctrl + V', 'Ctrl + C', 'Ctrl + X', 'Ctrl + Z'],
-            'answer': 'Ctrl + Z',
-            'explanation': 'Ctrl + Z is NOT associated with copying, cutting, and pasting in Excel.'
-        },
-        {
-            'question': "What is the effect of pressing 'Ctrl + Home' in Excel?",
-            'options': ['Prints the current worksheet', 'Saves the current workbook', 'Moves to the beginning of the worksheet', 'Closes the current workbook'],
-            'answer': 'Moves to the beginning of the worksheet',
-            'explanation': 'Ctrl + Home moves to the beginning of the worksheet in Excel.'
-        },
-        {
-            'question': 'Which shortcut will cut the selected cells?',
-            'options': ['Ctrl + Z', 'Ctrl + V', 'Ctrl + X', 'Ctrl + C'],
-            'answer': 'Ctrl + X',
-            'explanation': 'Ctrl + X cuts the selected cells.'
-        },
-        {
-            'question': 'To apply or remove underline formatting, you would use:',
-            'options': ['Ctrl + B', 'Ctrl + Y', 'Ctrl + U', 'Ctrl + I'],
-            'answer': 'Ctrl + U',
-            'explanation': 'Ctrl + U is used to apply or remove underline formatting.'
-        },
-        {
-            'question': "What does 'Ctrl + F' open in Excel?",
-            'options': ['File menu', 'Find dialog', 'Font settings', 'Format cells dialog'],
-            'answer': 'Find dialog',
-            'explanation': 'Ctrl + F opens the Find dialog in Excel.'
-        },
-        {
-            'question': 'How can you move one screen up in the worksheet using the keyboard?',
-            'options': ['Alt + Page Up', 'Ctrl + Page Up', 'Page Up', 'Page Down'],
-            'answer': 'Page Up',
-            'explanation': 'Page Up moves one screen up in the worksheet using the keyboard.'
-        },
-        {
-            'question': 'If you wanted to select the entire row where your active cell is located, which shortcut would you use?',
-            'options': ['Ctrl + Shift + Space', 'Shift + Space', 'Ctrl + Space', 'Alt + Space'],
-            'answer': 'Shift + Space',
-            'explanation': 'Shift + Space selects the entire row where the active cell is located.'
-        },
-        {
-            'question': 'To quickly navigate to the edge of data regions, you should press:',
-            'options': ['Shift + Arrow Key', 'Alt + Arrow Key', 'Ctrl + Arrow Key', 'Arrow Key alone'],
-            'answer': 'Ctrl + Arrow Key',
-            'explanation': 'Ctrl + Arrow Key is used to quickly navigate to the edge of data regions.'
-        },
-        {
-            'question': "What action is performed by 'Ctrl + B' in Excel?",
-            'options': ['Insert a blank row', 'Bold formatting', 'Start a new bullet list', 'Open bookmarks'],
-            'answer': 'Bold formatting',
-            'explanation': 'Ctrl + B performs bold formatting in Excel.'
-        },
-        {
-            'question': "What does 'Shift + F11' accomplish in Excel?",
-            'options': ['Applies a filter', 'Finds and replaces text', 'Opens the field settings', 'Inserts a new worksheet'],
-            'answer': 'Inserts a new worksheet',
-            'explanation': 'Shift + F11 inserts a new worksheet in Excel.'
-        }
-    ]
+        {'question': 'What is the keyboard shortcut to move to the next worksheet in Excel?', 'options': ['Ctrl + Shift + Page Down', 'Ctrl + Page Down', 'Ctrl + N', 'Alt + Page Down'], 'answer': 'Ctrl + Page Down', 'explanation': 'Ctrl + Page Down moves to the next worksheet in Excel.'},  
+        {'question': 'Which of the following methods is used to select multiple non-adjacent cells?', 'options': ['Shift + Click', 'Ctrl + Click', 'Tab + Click', 'Alt + Click'], 'answer': 'Ctrl + Click', 'explanation': 'Ctrl + Click is used to select multiple non-adjacent cells.'}, 
+        {'question': 'Which option allows you to add a new worksheet in Excel?', 'options': ['Press Ctrl + N', "Type 'New' in a cell and press Enter", "Go to the 'Insert' tab and click on 'Worksheet'", "Right-click on a worksheet tab and select 'New'"], 'answer': "Go to the 'Insert' tab and click on 'Worksheet'", 'explanation': "To add a new worksheet in Excel, go to the 'Insert' tab and click on 'Worksheet'."}, 
+        {'question': 'Which function is used to find the largest value in a range?', 'options': ['BIG', 'MAXIMUM', 'MAX', 'LARGE'], 'answer': 'MAX', 'explanation': 'The MAX function is used to find the largest value in a range in Excel.'}, 
+        {'question': 'Which keyboard shortcut is used to remove filters in Excel?', 'options': ['Ctrl + Shift + R', 'Ctrl + Shift + L', 'Ctrl + Shift + F', 'Ctrl + Shift + X'], 'answer': 'Ctrl + Shift + F', 'explanation': 'Ctrl + Shift + F is used to remove filters in Excel.'}, 
+        {'question': 'What does conditional formatting do in Excel?', 'options': ['Copies cells based on specific conditions', 'Deletes cells that meet certain conditions', 'Sorts data based on conditions', 'Applies formatting based on specified criteria'], 'answer': 'Applies formatting based on specified criteria', 'explanation': 'Conditional formatting in Excel applies formatting based on specified criteria.'}, 
+        {'question': 'In Excel, which symbol is used to indicate an absolute reference in a formula?', 'options': ['$', '%', '#', '@'], 'answer': '$', 'explanation': "The symbol '$' is used to indicate an absolute reference in an Excel formula."}, 
+        {'question': 'Which logical operator is used to combine two or more conditions where all conditions must be true?', 'options': ['NOT', 'AND', 'OR', 'XOR'], 'answer': 'AND', 'explanation': "The 'AND' logical operator is used to combine conditions where all conditions must be true."}, 
+        {'question': 'Which function is used to perform a logical test and return one value if the condition is TRUE and another value if FALSE?', 'options': ['IFS', 'IF', 'SWITCH', 'VLOOKUP'], 'answer': 'IF', 'explanation': 'The IF function is used to perform a logical test and return one value if the condition is TRUE and another value if FALSE.'}, 
+        {'question': 'Which function is used to find the total number of cells in a range that contain numbers?', 'options': ['AVERAGE', 'SUM', 'MAX', 'COUNT'], 'answer': 'COUNT', 'explanation': 'The COUNT function is used to find the total number of cells in a range that contain numbers.'}, 
+        {'question': 'What is the purpose of the COUNTIF function in Excel?', 'options': ['Counts the number of cells in a range that meet multiple criteria', 'Calculates the average of cells in a range that meet a criterion', 'Counts the number of cells in a range that meet a single criterion', 'Determines the maximum value in a range that meets specific criteria'], 'answer': 'Counts the number of cells in a range that meet a single criterion', 'explanation': 'The COUNTIF function counts the number of cells in a range that meet a single criterion.'}, 
+        {'question': 'Which function is used to add the cells specified by a given condition or criteria?', 'options': ['SUMIFS', 'COUNTIF', 'AVERAGEIF', 'SUMIF'], 'answer': 'SUMIF', 'explanation': 'The SUMIF function is used to add the cells specified by a given condition or criteria.'}, 
+        {'question': 'Which function calculates the average of cells in a range that meet multiple criteria?', 'options': ['AVERAGE', 'AVERAGEA', 'AVERAGEIFS', 'AVERAGEIF'], 'answer': 'AVERAGEIFS', 'explanation': 'The AVERAGEIFS function calculates the average of cells in a range that meet multiple criteria.'}, 
+        {'question': 'What combination of functions can be used to perform a lookup in Excel without needing to sort the data?', 'options': ['INDEX/MATCH', 'VLOOKUP/HLOOKUP', 'LOOKUP/SEARCH', 'MATCH/INDEX'], 'answer': 'INDEX/MATCH', 'explanation': 'The combination of INDEX/MATCH functions can be used to perform a lookup in Excel without needing to sort the data.'}, 
+        {'question': 'Which function is used to search for a value in the first column of a table array and return a value in the same row from another column?', 'options': ['LOOKUP', 'VLOOKUP', 'INDEX', 'HLOOKUP'], 'answer': 'VLOOKUP', 'explanation': 'The VLOOKUP function is used to search for a value in the first column of a table array and return a value in the same row from another column.'}, 
+        {'question': 'Which Excel function can replace both VLOOKUP and HLOOKUP?', 'options': ['MATCH', 'SEARCH', 'XLOOKUP', 'LOOKUP'], 'answer': 'XLOOKUP', 'explanation': 'The XLOOKUP function can replace both VLOOKUP and HLOOKUP in Excel.'}, 
+        {'question': 'Which function allows you to filter data based on specified criteria?', 'options': ['FILTER', 'SORT', 'FIND', 'SEARCH'], 'answer': 'FILTER', 'explanation': 'The FILTER function allows you to filter data based on specified criteria.'}, 
+        {'question': 'Which function combines the text from multiple ranges and/or strings, and includes a delimiter you specify between each text value?', 'options': ['COMBINE', 'CONCATENATE', 'TEXTJOIN', 'JOINTEXT'], 'answer': 'TEXTJOIN', 'explanation': 'The TEXTJOIN function combines the text from multiple ranges and/or strings, including a delimiter specified between each text value.'}, 
+        {'question': 'Which function returns a list of unique values from a range or array, removing any duplicate values?', 'options': ['DISTINCT', 'UNIQUE', 'DUPLICATE', 'UNIQ'], 'answer': 'UNIQUE', 'explanation': 'The UNIQUE function returns a list of unique values from a range or array, removing any duplicate values.'}, 
+        {'question': 'Which Excel function is commonly used in conjunction with Data Validation to ensure data integrity?', 'options': ['INDEX', 'IF', 'SUM', 'VLOOKUP'], 'answer': 'IF', 'explanation': 'The IF function is commonly used in conjunction with Data Validation to ensure data integrity.'}, 
+        {'question': 'Which Excel feature allows you to summarize and analyze large datasets by organizing them into a customizable table?', 'options': ['Data Validation', 'VLOOKUP', 'Pivot Table', 'Conditional Formatting'], 'answer': 'Pivot Table', 'explanation': 'Pivot Table allows you to summarize and analyze large datasets by organizing them into a customizable table.'}, 
+        {'question': 'Which chart type is suitable for showing trends over time?', 'options': ['Line Chart', 'Pie Chart', 'Scatter Plot', 'Bar Chart'], 'answer': 'Line Chart', 'explanation': 'The Line Chart is suitable for showing trends over time.'}, 
+        {'question': 'What Excel feature allows users to dynamically filter data in a dashboard or report?', 'options': ['Slicer', 'Conditional Formatting', 'Pivot Table', 'Data Validation'], 'answer': 'Slicer', 'explanation': 'Slicer allows users to dynamically filter data in a dashboard or report.'}, 
+        {'question': 'Which of the following is NOT a data validation criteria option in Excel?', 'options': ['Date', 'Decimal', 'Currency', 'Whole Number'], 'answer': 'Currency', 'explanation': 'Currency is NOT a data validation criteria option in Excel.'}, 
+        {'question': 'What keyboard shortcut is used to quickly fill cells with data based on adjacent cells in Excel?', 'options': ['Ctrl + F', 'Ctrl + D', 'Ctrl + R', 'Ctrl + E'], 'answer': 'Ctrl + D', 'explanation': 'Ctrl + D is used to quickly fill cells with data based on adjacent cells in Excel.'},
+        {'question': "Calculate the total sales revenue for the 'Technology' category. Round it up to 3 decimal points.", 'options': ['812345.123', '923456.789', '836154.033', '735982.456'], 'answer': '836154.033'}, 
+        {'question': "Find the average profit for orders in the 'Consumer' segment. Round it up to 3 decimal points.", 'options': ['25.837', '30.567', '28.392', '22.456'], 'answer': '25.837'}, 
+        {'question': "Count the number of orders shipped using 'First Class' ship mode.", 'options': ['1456', '1398', '1623', '1538'], 'answer': '1538'}, 
+        {'question': "Determine the maximum sales value for the 'Office Supplies' category. Round it up to 3 decimal points.", 'options': ['9892.74', '10500.345', '9234.123', '10012.567'], 'answer': '9892.74'}, 
+        {'question': "Calculate the total quantity of products sold in the 'West' region.", 'options': ['12034', '12266', '12987', '11345'], 'answer': '12266'}, 
+        {'question': 'Find the order with the highest discount. Round it up to 3 decimal points.', 'options': ['US-2013-102345', 'US-2011-107890', 'US-2012-118983', 'US-2014-110345'], 'answer': 'US-2012-118983'}, 
+        {'question': "Calculate the average discount for 'Furniture' category products. Round it up to 3 decimal points.", 'options': ['0.192', '0.156', '0.174', '0.182'], 'answer': '0.174'}, 
+        {'question': "Determine the total profit for orders shipped to the 'East' region. Round it up to 3 decimal points.", 'options': ['92312.456', '91522.78', '89765.789', '87345.123'], 'answer': '91522.78'}, 
+        {'question': 'Find the product name with the highest sales.', 'options': ['Cisco TelePresence System EX90 Videoconferencing Unit', 'Dell Laptop', 'Samsung Galaxy', 'Apple iPhone'], 'answer': 'Cisco TelePresence System EX90 Videoconferencing Unit'}, 
+        {'question': 'Count the number of unique customers.', 'options': ['812', '793', '856', '734'], 'answer': '793'}, 
+        {'question': "Calculate the total sales revenue for orders placed on '13-09-2013'. Round it up to 3 decimal points.", 'options': ['1987.456', '2043.792', '2156.789', '2023.345'], 'answer': '2043.792'}, 
+        {'question': "Find the average sales revenue for 'Corporate' segment orders. Round it up to 3 decimal points.", 'options': ['238.123', '229.456', '245.567', '233.823'], 'answer': '233.823'}, 
+        {'question': "Calculate the total profit for the 'Chairs' sub-category. Round it up to 3 decimal points.", 'options': ['27645.789', '25367.456', '26590.166', '27012.345'], 'answer': '26590.166'}, 
+        {'question': "Determine the number of orders placed in the 'Central' region.", 'options': ['2456', '2189', '2323', '2345'], 'answer': '2323'}, 
+        {'question': 'Find the earliest order date in the dataset.', 'options': ['40123', '40956', '40547', '40789'], 'answer': '40547'}, 
+        {'question': "Calculate the total quantity of 'Paper' sub-category products sold.", 'options': ['5345', '4987', '5123', '5178'], 'answer': '5178'}, 
+        {'question': 'Determine the product with the highest profit.', 'options': ['Epson Workforce Pro', 'HP LaserJet Printer', 'Canon imageCLASS 2200 Advanced Copier', 'Brother MFC Printer'], 'answer': 'Canon imageCLASS 2200 Advanced Copier'}, 
+        {'question': 'Find the total sales revenue for orders with a discount greater than 20%. Round it up to 3 decimal points.', 'options': ['349876.123', '362770.15', '374567.456', '358912.789'], 'answer': '362770.15'}, 
+        {'question': 'Calculate the average quantity of products ordered per order. Round it up to 3 decimal points.', 'options': ['3.67', '4.12', '3.45', '3.79'], 'answer': '3.79'}, 
+        {'question': "Determine the total number of products sold in the 'Home Office' segment.", 'options': ['6987', '6744', '6723', '6456'], 'answer': '6744'}, 
+        {'question': 'Find the most frequently used ship mode.', 'options': ['Same Day', 'Standard Class', 'Second Class', 'First Class'], 'answer': 'Standard Class'}, 
+        {'question': "Calculate the total sales revenue for orders shipped in '2013'. Round it up to 3 decimal points.", 'options': ['479442.502', '500123.456', '470987.321', '489000.123'], 'answer': '479442.502'}, 
+        {'question': "Determine the total profit for orders in the 'South' region. Round it up to 3 decimal points.", 'options': ['47250.456', '48000.123', '46749.43', '45000.789'], 'answer': '46749.43'}, 
+        {'question': 'Find the order date with the highest number of orders placed.', 'options': ['40500', '41000', '42000', '41523'], 'answer': '41523'}, 
+        {'question': 'Calculate the average profit margin (Profit/Sales) for all orders. Round it up to 3 decimal points.', 'options': ['0.18', '0.15', '0.10', '0.12'], 'answer': '0.12'}
+       ]
 
 page_bg_img = """
 <style>
@@ -271,6 +171,7 @@ else:
     # Display questions and handle navigation
     st.title("Excel Explorer: Dive into Data Analytics with our Quiz!")
     if not st.session_state.get('show_score', False):
+        st.write("Excel Dataset Link : [Click Here](https://docs.google.com/spreadsheets/d/1c9U8Q1aarvT7ODGxDEKcaCxkOvPN4ueKdg5VWKluUEY/edit#gid=0)")
         q = quiz_questions[st.session_state.current_question]
         display_question(q)
 
