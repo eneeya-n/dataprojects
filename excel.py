@@ -171,7 +171,7 @@ else:
     # Display questions and handle navigation
     st.title("Excel Explorer: Dive into Data Analytics with our Quiz!")
     if not st.session_state.get('show_score', False):
-        st.write("Excel Dataset Link : [Click Here](https://docs.google.com/spreadsheets/d/1c9U8Q1aarvT7ODGxDEKcaCxkOvPN4ueKdg5VWKluUEY/edit#gid=0)")
+        st.write("Excel Dataset Link : [Click Here](https://docs.google.com/spreadsheets/d/19M12tVjW3HKPU3Y8nl4zUcGF2nkY4H8vW5-ASvLR8Ns/edit?usp=sharing)")
         q = quiz_questions[st.session_state.current_question]
         display_question(q)
 
